@@ -6,21 +6,11 @@ from PIL import Image
 
 app = Flask(__name__)
 
-# Папки для загрузки и результатов
-# UPLOAD_FOLDER = "uploads"
-# RESULTS_FOLDER = "static/results"
-# os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-# os.makedirs(RESULTS_FOLDER, exist_ok=True)
-
-
-print("Предзагрузка модели Qwen...")
 model, processor = get_model_and_processor()
-print("Модель загружена в память.")
 
 @app.route("/")
 def index():
-    """Главная страница с формой"""
-
+    """Main page"""
     return render_template("index.html")
 
 
@@ -53,6 +43,6 @@ def analyze():
 
 
 if __name__ == "__main__":
-    print("Запуск приложения на http://localhost:5000")
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    print("Запуск приложения на http://localhost:5050")
+    app.run(host="0.0.0.0", port=5050, debug=False)
 
